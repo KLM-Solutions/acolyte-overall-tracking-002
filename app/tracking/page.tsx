@@ -461,11 +461,11 @@ export default function ConversationsPage() {
                         <div key={index}>
                           <div className="border-l-4 border-blue-500 pl-4 dark:bg-gray-900">
                             <div className="mb-2">
-                              <p className="font-bold text-gray-900 dark:text-gray-100 mb-1">Question:</p>
+                              <p className="font-bold text-gray-900 dark:text-gray-100 mb-1">User question:</p>
                               <p className="text-gray-700 dark:text-gray-300">{message.question}</p>
                             </div>
                             <div>
-                              <p className="font-bold text-gray-900 dark:text-gray-100 mb-1">Response:</p>
+                              <p className="font-bold text-gray-900 dark:text-gray-100 mb-1">Generated response:</p>
                               <article className="prose prose-sm max-w-none dark:prose-invert">
                                 <ReactMarkdown>{message.response}</ReactMarkdown>
                               </article>
