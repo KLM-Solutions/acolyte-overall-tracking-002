@@ -59,11 +59,11 @@ const SessionModal: React.FC<SessionModalProps> = ({ conversation, onClose }) =>
             <div key={index}>
               <div className="border-l-4 border-blue-500 pl-4">
                 <div className="mb-2">
-                  <p className="font-bold text-gray-900 mb-1">Question:</p>
+                  <p className="font-bold text-gray-900 mb-1">User question:</p>
                   <p className="text-gray-700">{message.question}</p>
                 </div>
                 <div>
-                  <p className="font-bold text-gray-900 mb-1">Response:</p>
+                  <p className="font-bold text-gray-900 mb-1">Generated response:</p>
                   <article className="prose prose-slate prose-lg max-w-none">
                     <ReactMarkdown>{message.response}</ReactMarkdown>
                   </article>
