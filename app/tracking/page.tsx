@@ -37,8 +37,8 @@ const SessionModal: React.FC<SessionModalProps> = ({ conversation, onClose }) =>
   };
   
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-80">
-      <div className="bg-white rounded-lg w-11/12 max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-80 dark:bg-gray-900 dark:bg-opacity-95">
+      <div className="bg-white rounded-lg w-11/12 max-w-4xl max-h-[90vh] overflow-hidden flex flex-col dark:bg-gray-900">
         <div className="flex justify-between items-center p-4 border-b">
           <h2 className="text-xl font-semibold flex items-center">
             Session Details 
@@ -54,21 +54,21 @@ const SessionModal: React.FC<SessionModalProps> = ({ conversation, onClose }) =>
           </button>
         </div>
         
-        <div className="overflow-y-auto p-6">
+        <div className="overflow-y-auto p-6 dark:bg-gray-900">
           {conversation.conversation_data.map((message, index) => (
             <div key={index}>
-              <div className="border-l-4 border-blue-500 pl-4">
+              <div className="border-l-4 border-blue-500 pl-4 dark:bg-gray-900">
                 <div className="mb-2">
-                  <p className="font-bold text-gray-900 mb-1">User question:</p>
-                  <p className="text-gray-700">{message.question}</p>
+                  <p className="font-bold text-gray-900 dark:text-gray-100 mb-1">User question:</p>
+                  <p className="text-gray-700 dark:text-gray-300">{message.question}</p>
                 </div>
                 <div>
-                  <p className="font-bold text-gray-900 mb-1">Generated response:</p>
-                  <article className="prose prose-slate prose-lg max-w-none">
+                  <p className="font-bold text-gray-900 dark:text-gray-100 mb-1">Generated response:</p>
+                  <article className="prose prose-slate prose-lg max-w-none dark:prose-invert">
                     <ReactMarkdown>{message.response}</ReactMarkdown>
                   </article>
                 </div>
-                <p className="text-xs text-gray-500 mt-2">
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
                   {formatModalTimestamp(message.timestamp)}
                 </p>
               </div>
@@ -86,17 +86,17 @@ const SessionModal: React.FC<SessionModalProps> = ({ conversation, onClose }) =>
 // Function to get agent badge color based on agent name
 const getAgentBadgeColor = (agentName: string) => {
   const colorMap: Record<string, string> = {
-    '101 - Block 3 - Practice Session': 'bg-blue-100 text-blue-800',
-    '101 - Block 5 - Practice Session': 'bg-green-100 text-green-800',
-    '101 - Block 9 - Practice Session': 'bg-purple-100 text-purple-800',
-    '101 - Block 12 - Practice (Workplace Sim)': 'bg-yellow-100 text-yellow-800',
-    '103 - Block 3 - Practice Session': 'bg-red-100 text-red-800',
-    '103 - Block 5 - Practice Session': 'bg-indigo-100 text-indigo-800',
-    '103 - Block 7 - Practice Session': 'bg-pink-100 text-pink-800',
-    '103 - Block 10 - Practice (Workplace Sim)': 'bg-gray-100 text-gray-800',
+    '101 - Block 3 - Practice Session': 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100',
+    '101 - Block 5 - Practice Session': 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100',
+    '101 - Block 9 - Practice Session': 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100',
+    '101 - Block 12 - Practice (Workplace Sim)': 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100',
+    '103 - Block 3 - Practice Session': 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100',
+    '103 - Block 5 - Practice Session': 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-100',
+    '103 - Block 7 - Practice Session': 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-100',
+    '103 - Block 10 - Practice (Workplace Sim)': 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100',
   };
   
-  return colorMap[agentName] || 'bg-gray-100 text-gray-800';
+  return colorMap[agentName] || 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100';
 };
 
 export default function ConversationsPage() {
@@ -278,9 +278,9 @@ export default function ConversationsPage() {
   const agentCount = agents.length;
 
   return (
-    <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8 dark:bg-gray-950">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-white shadow-md rounded-lg p-6">
+        <div className="bg-white shadow-md rounded-lg p-6 dark:bg-gray-900">
           {/* Header */}
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-2xl font-bold text-gray-900">Tracking user Conversation</h1>
@@ -319,7 +319,7 @@ export default function ConversationsPage() {
               <div className="relative">
                 <button
                   onClick={() => setShowAgentDropdown(!showAgentDropdown)}
-                  className="flex items-center space-x-2 px-4 py-2 rounded bg-gray-100 hover:bg-gray-200"
+                  className="flex items-center space-x-2 px-4 py-2 rounded bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100"
                 >
                   <Filter size={16} />
                   <span>
@@ -329,15 +329,15 @@ export default function ConversationsPage() {
                 </button>
                 
                 {showAgentDropdown && (
-                  <div className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg z-10 border border-gray-200">
+                  <div className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg z-10 border border-gray-200 dark:bg-gray-900 dark:border-gray-700">
                     <div className="py-1">
                       <button
                         onClick={() => {
                           setSelectedAgent('all');
                           setShowAgentDropdown(false);
                         }}
-                        className={`block w-full text-left px-4 py-2 hover:bg-gray-100 ${
-                          selectedAgent === 'all' ? 'bg-blue-100 font-medium' : ''
+                        className={`block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-100 ${
+                          selectedAgent === 'all' ? 'bg-blue-100 font-medium dark:bg-blue-900' : ''
                         }`}
                       >
                         All Agents
@@ -350,12 +350,12 @@ export default function ConversationsPage() {
                             setSelectedAgent(agent);
                             setShowAgentDropdown(false);
                           }}
-                          className={`block w-full text-left px-4 py-2 hover:bg-gray-100 ${
-                            selectedAgent === agent ? 'bg-blue-100 font-medium' : ''
+                          className={`block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-100 ${
+                            selectedAgent === agent ? 'bg-blue-100 font-medium dark:bg-blue-900' : ''
                           }`}
                         >
                           {agent}
-                          {selectedAgent === agent && <span className="ml-2 text-xs text-blue-600">(Selected)</span>}
+                          {selectedAgent === agent && <span className="ml-2 text-xs text-blue-600 dark:text-blue-300">(Selected)</span>}
                         </button>
                       ))}
                     </div>
@@ -405,10 +405,10 @@ export default function ConversationsPage() {
               {filteredConversations.map((conversation) => (
                 <div
                   key={conversation.session_id}
-                  className={`border border-gray-200 rounded-lg p-4 transition-all duration-200 ${
+                  className={`border border-gray-200 rounded-lg p-4 transition-all duration-200 dark:border-gray-700 ${
                     expandedSessions.has(conversation.session_id) 
-                      ? 'ring-2 ring-blue-500 shadow-lg' 
-                      : 'hover:border-gray-300'
+                      ? 'ring-2 ring-blue-500 shadow-lg dark:ring-blue-400 dark:bg-gray-800' 
+                      : 'hover:border-gray-300 dark:hover:border-gray-500'
                   }`}
                 >
                   <div 
@@ -427,13 +427,13 @@ export default function ConversationsPage() {
                         size={20}
                       />
                       <div>
-                        <h3 className="text-lg font-medium text-gray-900 flex items-center">
+                        <h3 className="text-lg font-medium text-gray-900 flex items-center dark:text-gray-100">
                           {formatSessionName(conversation.timestamp)}
                           <span className={`ml-3 px-2 py-1 text-xs rounded ${getAgentBadgeColor(conversation.agent)}`}>
                             {conversation.agent}
                           </span>
                         </h3>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-gray-500 dark:text-gray-300">
                           Session ID: {conversation.session_id.slice(0, 8)}...
                         </p>
                       </div>
@@ -456,21 +456,21 @@ export default function ConversationsPage() {
                   </div>
 
                   {expandedSessions.has(conversation.session_id) && (
-                    <div className="mt-4 space-y-3 border-t border-gray-200 pt-4">
+                    <div className="mt-4 space-y-3 border-t border-gray-200 pt-4 dark:border-gray-700 dark:bg-gray-900 p-2 rounded-lg">
                       {conversation.conversation_data.map((message, index) => (
                         <div key={index}>
-                          <div className="border-l-4 border-blue-500 pl-4">
+                          <div className="border-l-4 border-blue-500 pl-4 dark:bg-gray-900">
                             <div className="mb-2">
-                              <p className="font-bold text-gray-900 mb-1">Question:</p>
-                              <p className="text-gray-700">{message.question}</p>
+                              <p className="font-bold text-gray-900 dark:text-gray-100 mb-1">Question:</p>
+                              <p className="text-gray-700 dark:text-gray-300">{message.question}</p>
                             </div>
                             <div>
-                              <p className="font-bold text-gray-900 mb-1">Response:</p>
-                              <article className="prose prose-sm max-w-none">
+                              <p className="font-bold text-gray-900 dark:text-gray-100 mb-1">Response:</p>
+                              <article className="prose prose-sm max-w-none dark:prose-invert">
                                 <ReactMarkdown>{message.response}</ReactMarkdown>
                               </article>
                             </div>
-                            <p className="text-xs text-gray-500 mt-2">
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
                               {formatTimestamp(message.timestamp)}
                             </p>
                           </div>
