@@ -15,6 +15,7 @@ const tableAgentMap = [
   { table: "Tracking-acolyte-103-pricing-models", agent: "103 - Block 5 - Practice Session" },
   { table: "Tracking-acolyte-103-formulary-and-plan-designn", agent: "103 - Block 7 - Practice Session" },
   { table: "Tracking-acolyte-103-practice", agent: "103 - Block 10 - Practice (Workplace Sim)" },
+  { table: "Tracking-103-workplace-sim-nondiscrimination-testing", agent: "103-workplace-sim-nondiscrimination-testing" },
 ];
 
 export async function GET(req: Request) {
