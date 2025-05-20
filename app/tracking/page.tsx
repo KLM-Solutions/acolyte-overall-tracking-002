@@ -94,7 +94,7 @@ const getAgentBadgeColor = (agentName: string) => {
     '103 - Block 5 - Practice Session': 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-100',
     '103 - Block 7 - Practice Session': 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-100',
     '103 - Block 10 - Practice (Workplace Sim)': 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100',
-    '101 - Block 3 - Practice Session': 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100',
+    '103-workplace-sim-nondiscrimination-testing': 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100',
   };
   
   return colorMap[agentName] || 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100';
